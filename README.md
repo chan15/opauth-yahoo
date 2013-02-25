@@ -1,6 +1,6 @@
 <h1>Opauth-Yahoo</h1>
 
-<<<<<<< HEAD
+
 =======
 <p><a href="https://github.com/uzyn/opauth">Opauth</a> strategy for Yahoo authentication.</p>
 
