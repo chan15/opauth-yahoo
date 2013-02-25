@@ -97,10 +97,7 @@ class YahooStrategy extends OpauthStrategy {
 	        
 	        }
 	   
-
-	        
 	        $profile =$this->recursiveGetObjectVars($userInfo);
-	       
 
 			$this->auth = array(
 					'uid' => $profile['profile']['guid'],
@@ -120,7 +117,6 @@ class YahooStrategy extends OpauthStrategy {
 				if (!empty($profile['profile']['location'])) $this->auth['info']['location'] = $profile['profile']['location'];
 				if (!empty($profile['profile']['profileUrl'])) $this->auth['info']['urls']['yahoo'] = $profile['profile']['profileUrl'];
 				if (!empty($profile['profile']['image']['imageUrl'])) $this->auth['info']['picture'] = $profile['profile']['image']['imageUrl'];
-
 	        
 				$this->callback();
 	       
@@ -133,13 +129,12 @@ class YahooStrategy extends OpauthStrategy {
 		}
  
 		private function errorExit($obj){
-		      $error = array(
+			 $error = array(
                     'code' => $obj->oauth_problem,
                     'raw' => (array)$obj
-              );
-              $this->errorCallback($error);
-              return false;  
-			
+             );
+             $this->errorCallback($error);
+             return false;  
 			
 		}
 	    
