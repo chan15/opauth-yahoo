@@ -46,4 +46,3 @@ Optional parameters: <code>appid</code> ( Provide it if you have several apps in
 
 <p>Opauth-Yahoo is MIT Licensed<br>
 Copyright &copy; 2013 Valerii Igumentsev (<a href="http:facebook.com/ibooper">http:facebook.com/ibooper</a>)</p>
-
