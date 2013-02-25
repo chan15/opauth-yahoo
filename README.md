@@ -19,17 +19,11 @@ git clone git://github.com/booper/opauth-yahoo.git Yahoo
 
 <p>During registration, indicate the kinds of Yahoo! User data (also called Scopes) you want to access.
 Later in the OAuth process, Yahoo! will ask your Users if Yahoo! should allow you to access their User data.
-For more information about Scopes, see Scopes section <a href="http://developer.yahoo.com/oauth/guide/oauth-scopes.html">http://developer.yahoo.com/oauth/guide/oauth-scopes.html</a></p>.
-
-
+For more information about Scopes, see Scopes section <a href="http://developer.yahoo.com/oauth/guide/oauth-scopes.html">http://developer.yahoo.com/oauth/guide/oauth-scopes.html</a></p>
 <p>Configure Opauth-Yahoo strategy.</p></li>
 <p>Direct user to <code>http://path_to_opauth/yahoo</code> to authenticate</p></li>
-
-
-
 <h2>
 <a href="#strategy-configuration" class="anchor" name="strategy-configuration"><span class="mini-icon mini-icon-link"></span></a>Strategy configuration</h2>
-
 <p>Required parameters:</p>
 <code>
 'Google' => array(
