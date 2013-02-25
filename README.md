@@ -1,6 +1,4 @@
 <h1>Opauth-Yahoo</h1>
-
-
 =======
 <p><a href="https://github.com/uzyn/opauth">Opauth</a> strategy for Yahoo authentication.</p>
 
@@ -14,7 +12,7 @@
 
 <pre><span class="nb">cd </span>path_to_opauth/Strategy
 git clone git://github.com/booper/opauth-yahoo.git Yahoo
-</pre><
+</pre>
 
 
 <p>Sign Up Yahoo App and Get a Consumer Key at  <a href="https://developer.apps.yahoo.com/dashboard/createKey.html">https://developer.apps.yahoo.com/dashboard/createKey.html</a></p>
@@ -48,8 +46,9 @@ Optional parameters: <code>appid</code> ( Provide it if you have several apps in
 
 <ul>
 
-</ul><h2>
-<a href="#license" class="anchor" name="license"><span class="mini-icon mini-icon-link"></span></a>License</h2>
+</ul>
+
+<h2>License</h2>
 
 <p>Opauth-Yahoo is MIT Licensed<br>
 Copyright &copy; 2013 Valerii Igumentsev (<a href="http:facebook.com/ibooper">http:facebook.com/ibooper</a>)</p>
