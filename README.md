@@ -40,9 +40,11 @@ Optional parameters: <code>appid</code> ( Provide it if you have several apps in
 
 <ul>
 
+  <li><a href="http://developer.yahoo.com/oauth/guide/create-consumer-key-guide.html">Create Yahoo! Consumer Key (CCK) API Guide</a></li>
+    <li><a href="http://developer.yahoo.com/oauth/guide/oauth-auth-flow.html">Yahoo OAuth Authorization Flow</a></li>
 </ul>
 
 <h2>License</h2>
 
 <p>Opauth-Yahoo is MIT Licensed<br>
-Copyright &copy; 2013 Valerii Igumentsev (<a href="http:facebook.com/ibooper">http:facebook.com/ibooper</a>)</p>
+Copyright &copy; 2013 Valerii Igumentsev (<a href="http://facebook.com/ibooper">http://facebook.com/ibooper</a>)</p>
