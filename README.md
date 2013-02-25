@@ -8,7 +8,7 @@
 
 <h2>Getting started</h2>
 
-<p>Install Yahoo-Yahoo:</p>
+<p>Install Opauth-Yahoo:</p>
 
 <pre><span class="nb">cd </span>path_to_opauth/Strategy
 git clone git://github.com/booper/opauth-yahoo.git Yahoo
