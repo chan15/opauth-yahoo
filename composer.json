@@ -1,0 +1,19 @@
+{
+  "name": "opauth/yahoo",
+	"description": "Yahoo strategy for Opauth",
+	"keywords": ["authentication","auth","yahoo"],
+	"authors": [
+		{
+			"name": "Valerii Igumentsev",
+			"homepage": "http://facebook.com/ibooper"
+		}
+	],
+	"require": {
+		"opauth/opauth": ">=0.2.0"
+	},
+	"autoload": {
+		"psr-0": {
+			"": "."
+		}
+	}
+}
