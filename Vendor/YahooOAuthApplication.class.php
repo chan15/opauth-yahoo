@@ -36,7 +36,6 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *   THE SOFTWARE.
  **/
-require_once 'OAuth.php';
 require_once 'YahooCurl.class.php';
 require_once 'YahooYQLQuery.class.php';
 require_once 'YahooOAuthApplicationException.class.php';
