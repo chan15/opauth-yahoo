@@ -2,9 +2,9 @@
 /**
  * Yahoo strategy for OpAuth
  * Based on http://developer.yahoo.com/oauth/guide/oauth-auth-flow.html
- * 
+ *
  * More information on Opauth: http://opauth.org
- * 
+ *
  * @copyright Copyright 2013 Valerii Igumentsev (http://facebook.com/ibooper)
  * @link        http://opauth.org
  * @package     Opauth.YahooStrategy
@@ -35,29 +35,29 @@ class YahooStrategy extends OpauthStrategy {
                 parent::__construct($strategy, $env);
                 if (!session_id()) {
 					session_start();
-				}                 
+				}
                 require dirname(__FILE__).'/Vendor/YahooOAuthApplication.class.php';
-	        
+
                 $this->yauth = new YahooOAuthApplication($this->strategy['key'],$this->strategy['secret'],$this->strategy['appid']);
-                
-        }      
-                
-                
+
+        }
+
+
         /**
          * Auth request
          */
         public function request(){
-       	
+
 	        $OauthRequestToken = $this->yauth->getRequestToken($this->strategy['redirect_uri']);
-	         if(!$OauthRequestToken->key)$this->errorExit($OauthRequestToken);	
-	        
+	         if(!$OauthRequestToken->key)$this->errorExit($OauthRequestToken);
+
 	        $_SESSION['yahoo']['yahoo_key'] = $OauthRequestToken->key;
 	        $_SESSION['yahoo']['yahoo_secret']  = $OauthRequestToken->secret;
 	        $_SESSION['yahoo']['yahoo_expires_in'] = $OauthRequestToken->expires_in;
-	    
+
 	        $AuthUrl = $this->yauth->getAuthorizationUrl($OauthRequestToken);
-	       
-	        $this->clientGet($AuthUrl);	
+
+	        $this->clientGet($AuthUrl);
         }
 
         /**
@@ -65,38 +65,38 @@ class YahooStrategy extends OpauthStrategy {
          */
         public function int_callback(){
 	        $token = new YahooOAuthRequestToken($_SESSION['yahoo']['yahoo_key'], $_SESSION['yahoo']['yahoo_secret'], $_SESSION['yahoo']['yahoo_expires_in']);
-	        
-	        if(!$token->key)$this->errorExit($token);	        
-	        
+
+	        if(!$token->key)$this->errorExit($token);
+
 	        $access_token = $this->yauth->getAccessToken($token,$_GET['oauth_verifier']);
 
 	        if(!$access_token->key)$this->errorExit($access_token);
-	    
+
 	        $yid = $this->yauth->getGUID();
-	        
+
 	        if(empty($yid)){
 	        	$error = array(
                     'code' => 'user ID_error',
                     'raw' => 'ailed when attempting to obtain user ID'
               );
               $this->errorCallback($error);
-              return false;  
+              return false;
 
-	        
+
 	        }
-		        
+
 		    $userInfo = $this->yauth->getProfile($yid);
-	        
+
 	        if(empty($userInfo)){
 	        	$error = array(
 					'code' => 'userinfo_error',
 					'message' => 'Failed when attempting to query for user information',
               );
               $this->errorCallback($error);
-              return false;  
-	        
+              return false;
+
 	        }
-	   
+
 	        $profile =$this->recursiveGetObjectVars($userInfo);
 
 			$this->auth = array(
@@ -117,26 +117,26 @@ class YahooStrategy extends OpauthStrategy {
 				if (!empty($profile['profile']['location'])) $this->auth['info']['location'] = $profile['profile']['location'];
 				if (!empty($profile['profile']['profileUrl'])) $this->auth['info']['urls']['yahoo'] = $profile['profile']['profileUrl'];
 				if (!empty($profile['profile']['image']['imageUrl'])) $this->auth['info']['picture'] = $profile['profile']['image']['imageUrl'];
-	        
+
 				$this->callback();
-	       
+
 	    }
-	    
+
 	    //reload clientGet
-	    
+
 	   	public static function clientGet($url, $data = array(), $exit = true) {
 			self::redirect($url, $exit);
 		}
- 
+
 		private function errorExit($obj){
 			 $error = array(
                     'code' => $obj->oauth_problem,
                     'raw' => (array)$obj
              );
              $this->errorCallback($error);
-             return false;  
-			
+             return false;
+
 		}
-	    
+
 
 }
